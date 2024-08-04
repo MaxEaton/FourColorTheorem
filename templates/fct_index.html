@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}FCT{% endblock %}
+
+{% block content %}
+<h1>
+    Four Coloring Simulator
+</h1>
+<!-- <div id="fct-box">
+    <div id="fct-line-container">
+    </div>
+    <div id="fct-shape-container">
+    </div>
+</div> -->
+<div id="fct-box" class="no-select">
+</div>
+<div id="fct-buttons">
+    <button id='fct-undo'>Undo</button>
+    <button id='fct-clear'>Clear</button>
+    <button id='fct-color'>Color</button>
+</div>
+<script type="module" src="{{ url_for('fct.static', filename='js/fct_script.js') }}"></script>
+
+<!-- <script src="{{ url_for('fct.static', filename='js/testing.js') }}"></script> -->
+{% endblock %}
