@@ -48,6 +48,7 @@ export function fctColor() {
     } else {
         document.querySelectorAll(`#fct-triangulated`).forEach(triangulated => triangulated.parentNode.removeChild(triangulated));
         document.querySelectorAll(`#fct-quadrilangulated`).forEach(quadrilangulated => quadrilangulated.parentNode.removeChild(quadrilangulated));
+        for (let i=0; i<nodes.length; i++) document.getElementById(`fct-node${i}`).style.backgroundColor = '#666666';
         fctcolor.textContent = 'Color';
     }
     switchMode();
@@ -223,10 +224,11 @@ function quadrilateralate(triangles) {
         return false;
     }
 
-    let i = 0;
+    let i = -1;
     // Start from different points in case backtracking fails (i.e. error in paper)
-    while (i < triangles.length && !backtrack(triangles[i++]));
+    while (++i < triangles.length && !backtrack(triangles[i]));
     if (i == triangles.length) console.log("FAILED");
+    
     let marksX = [];
     let marksY = [];
     triangles.forEach(triangle => {

@@ -8,6 +8,7 @@ html, body, main {
 }
 
 #fct-box {
+    max-height: 30em;
     width: 99%;
     height: 75%;
     min-height: 20em;

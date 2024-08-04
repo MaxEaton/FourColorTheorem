@@ -21,5 +21,64 @@
 </div>
 <script type="module" src="{{ url_for('fct.static', filename='js/fct_script.js') }}"></script>
 
-<!-- <script src="{{ url_for('fct.static', filename='js/testing.js') }}"></script> -->
+<h1>
+    Proof of the Four Color Theorem
+</h1>
+<p>
+    The four color theorem states that any planar graph can be colored with no more than four colors in such a way that no two adjacent regions share the same color. 
+    This theorem was first proved in 1976 by Kenneth Appel and Wolfgang Haken using computer-assisted methods.
+    Its proof was one of the first major results to rely on computer-assisted calculations, marking a milestone in the use of computational methods in mathematical proofs. 
+</p>
+<p>
+    In high school I had written a paper for a class regarding the four color theorem, and in the process I stumbled upon an algorithm developed in the 1800s by mathematicican, Peter Guthrie Tait. 
+    It had inspired me to pursue a potential novel proof of the four color theorem without computer-assisted methods. 
+    For years, I consulted professors and peers seeking insight into the issue with my proof, as I was deeply skeptical that such a simple proof would have evaded the countless mathematicicans endeavoring to solve this famous problem. 
+    Upon recieving no input, I figured that a more hands on approach of implementing the algorithm would reveal the error. 
+</p>
+<p>
+    When I first started and mapped out how my algorithm would work, my optimism had gotten the best of me. 
+    I read up on efficient triangulation methods that would improve my naive O(n<sup>2</sup>) approach by using a Constrained Delaunay Triangulation algorithm for an optimized O(n log n) time complexity. 
+    I learned that the current fastest algorithm for four coloring was O(n<sup>2</sup>), meaning that as long as the rest of my algorithm was within O(n log n), I would have developed a cutting edge algorithm. 
+    Based on my paper, I had considered this completely feasible. 
+    Such optimism quickly eroded as I ran into problems leading me to finally discover a glaringly obvious, in retrospect, error in my paper. 
+    For those curious, the error was overlooking an invalid case located in the induction proof. 
+</p>
+<p>
+    This has not deterred my efforts however, as I continue to find a solution to remedy this error. 
+    In the mean time as bandaid solution, I implemented a backtracking algorithm which ostensibly emulates the core idea of the algorithm. 
+    The paper and instructions on how to use the tool is below. 
+    More features are coming soon! 
+</p>
+
+<h1>
+    The Inciting Paper
+</h1>
+<iframe src="{{ url_for('fct.static', filename='files/FCTPaper.pdf') }}" width="100%" height="50%"></iframe>
+
+<h1>
+    Using the Tool
+</h1>
+<ul style="padding-bottom: 2em;">
+    <li>
+        Click anywhere within the constraints to make a node. 
+    </li>
+    <li>
+    Drag between nodes to create edges. 
+    </li>
+    <li>
+    Nodes must be a radius apart so that edges are visible.
+    </li>
+    <li>
+    Edges cannot intersect nodes or edges. 
+    </li>
+    <li>
+    The Undo button will remove the last node or edge added. 
+    </li>
+    <li>
+    The Clear button will remove all nodes and edges. 
+    </li>
+    <li>
+    The Color button will color all nodes by applying the algorithm. 
+    </li>
+</ul>
 {% endblock %}
